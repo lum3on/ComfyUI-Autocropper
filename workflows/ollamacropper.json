@@ -1,0 +1,498 @@
+{
+  "id": "d8c6b74b-59c3-456f-8abe-da79c3cd43aa",
+  "revision": 0,
+  "last_node_id": 14,
+  "last_link_id": 17,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "Load Image Batch",
+      "pos": [
+        -277.5396728515625,
+        86.46324157714844
+      ],
+      "size": [
+        293.416015625,
+        270
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "3ed45af34a14551dc28cb3127235cc7197d4633f",
+        "Node name for S&R": "Load Image Batch",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "incremental_image",
+        487391616619419,
+        "randomize",
+        14,
+        "Batch 001",
+        "C:\\Users\\RAIIN Studios\\Downloads\\porsche_crop",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "OllamaAutoCropperNode",
+      "pos": [
+        483.44207763671875,
+        127.59651947021484
+      ],
+      "size": [
+        400,
+        280
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cropped_image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            15,
+            17
+          ]
+        },
+        {
+          "name": "reasoning",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "raw_api_response",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaAutoCropperNode",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "You are a dynamic image cropper GPT specialized in analyzing high-resolution images of Porsche vehicles and interiors, automatically selecting and applying the most compositionally optimal crop ratio from among 16:9, 9:16, 1:1, and 4:5 based on the subject matter and spatial arrangement, with a singular and unwavering focus on ensuring the car or its interior elements—such as the steering wheel, dashboard, center console, or exterior design features—remain precisely centered or strategically positioned to maintain prominence and visual balance within the frame, employing visual saliency detection, object recognition, and composition-aware heuristics to intelligently evaluate which aspect ratio best highlights the key product features while preserving Porsche's premium aesthetic, and dynamically adapting to diverse scenes (e.g., full vehicle shots, close-ups, cockpit views) without compromising the integrity of branding or visual storytelling, thereby consistently producing refined, context-sensitive image crops that align with luxury automotive presentation standards and digital content platform requirements.\n\n\nCropping Rule  list  \n\n* Exterior shots: 1:1 or 4:5\n* Driving shots where the car is not very close: 9:16 or 4:5\n* Parked shots: 16:9, 9:16 or 1:1\n* Cockpit/interior views: 4:5 or 1:1\n* Detail shots (wheels, badges, headlights, stitching): 1:1 or 4:5\n* Dynamic driving scenes (e.g. cornering, acceleration): 16:9 or 9:16\n",
+        "qwen2.5vl:7b",
+        "http://localhost:11434",
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        933.7014770507812,
+        507.86541748046875
+      ],
+      "size": [
+        307.41192626953125,
+        292.53387451171875
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewAny",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "SaveTIFFImage",
+      "pos": [
+        936.1227416992188,
+        136.4204864501953
+      ],
+      "size": [
+        324.755615234375,
+        83.5645523071289
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "SaveTIFFImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Croplamatiff/ComfyUI_tiff",
+        "none"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "PreviewAny",
+      "pos": [
+        931.5372314453125,
+        326.98681640625
+      ],
+      "size": [
+        306.5825500488281,
+        105.10164642333984
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewAny",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        483.84185791015625,
+        494.2420349121094
+      ],
+      "size": [
+        399.19708251953125,
+        315.1831359863281
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Cropped Image",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        83.0994644165039,
+        448.32147216796875
+      ],
+      "size": [
+        347.0877380371094,
+        286.666748046875
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "You are a dynamic image cropper GPT that analyzes high-resolution Porsche images, intelligently selecting from 16:9, 9:16, 1:1, or 4:5 to maintain precise focus on key vehicle or interior features using saliency, object detection, and composition rules—ensuring every crop enhances visual balance, brand integrity, and platform-ready aesthetics across diverse scenes.\n\nCropping Rule  list  \n\n* Parked shots: 16:9 or 9:16\n* Cockpit/interior views: 4:5 or 1:1\n* Detail shots (wheels, badges, headlights, stitching): 1:1 or 4:5\n* Dynamic driving scenes (e.g. cornering, acceleration): 16:9 or 9:16\n\n"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [
+        -271.51922607421875,
+        427.405517578125
+      ],
+      "size": [
+        270,
+        314.0000305175781
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "CZ25W12OX0004_low (1).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoadTIFFImage",
+      "pos": [
+        95.36968231201172,
+        130.50213623046875
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            16
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LoadTIFFImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "D:\\2025\\porsche_crop\\CM23N3FOX0001_16zu9_cmyk.tif"
+      ]
+    }
+  ],
+  "links": [
+    [
+      8,
+      2,
+      1,
+      7,
+      0,
+      "*"
+    ],
+    [
+      9,
+      2,
+      2,
+      8,
+      0,
+      "*"
+    ],
+    [
+      10,
+      9,
+      0,
+      2,
+      1,
+      "STRING"
+    ],
+    [
+      15,
+      2,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      13,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      2,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Ollama Auto Crop Workflow",
+      "bounding": [
+        50,
+        50,
+        1300,
+        750
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6303940863128502,
+      "offset": [
+        348.6099581175538,
+        253.7981157266053
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

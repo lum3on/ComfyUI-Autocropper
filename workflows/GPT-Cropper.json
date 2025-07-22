@@ -1,0 +1,286 @@
+{
+  "id": "3bce8779-4307-44b2-b98a-ece4ef13205f",
+  "revision": 0,
+  "last_node_id": 20,
+  "last_link_id": 27,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "AutoCropperNode",
+      "pos": [
+        501.9950866699219,
+        -260.3841552734375
+      ],
+      "size": [
+        409.2690734863281,
+        515.6024169921875
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cropped_image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            23
+          ]
+        },
+        {
+          "name": "reasoning",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            26
+          ]
+        },
+        {
+          "name": "raw_api_response",
+          "type": "STRING",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AutoCropperNode",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "You are a dynamic image cropper GPT specialized in analyzing high-resolution images of Porsche vehicles and interiors, automatically selecting and applying the most compositionally optimal crop ratio from among 16:9, 9:16, 1:1, and 4:5 based on the subject matter and spatial arrangement, with a singular and unwavering focus on ensuring the car or its interior elements—such as the steering wheel, dashboard, center console, or exterior design features—remain precisely centered or strategically positioned to maintain prominence and visual balance within the frame, employing visual saliency detection, object recognition, and composition-aware heuristics to intelligently evaluate which aspect ratio best highlights the key product features while preserving Porsche's premium aesthetic, and dynamically adapting to diverse scenes (e.g., full vehicle shots, close-ups, cockpit views) without compromising the integrity of branding or visual storytelling, thereby consistently producing refined, context-sensitive image crops that align with luxury automotive presentation standards and digital content platform requirements.\n\n\nCropping Rule  list  \n\n* Exterior shots: 1:1 or 4:5\n* Driving shots where the car is not very close: 9:16 or 4:5\n* Parked shots: 16:9, 9:16 or 1:1\n* Cockpit/interior views: 4:5 or 1:1\n* Detail shots (wheels, badges, headlights, stitching): 1:1 or 4:5\n* Dynamic driving scenes (e.g. cornering, acceleration): 16:9 or 9:16\n",
+        "gpt-4o",
+        1003990518061752,
+        0,
+        true
+      ]
+    },
+    {
+      "id": 18,
+      "type": "LoadImage",
+      "pos": [
+        147.3712921142578,
+        -262.077392578125
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            25
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "PA26P5JID0003_low.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "SaveImage",
+      "pos": [
+        1019.0555419921875,
+        -503.4116516113281
+      ],
+      "size": [
+        337.3340759277344,
+        369.6891174316406
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "SaveImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_AutoCropper/Crop1"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "PreviewAny",
+      "pos": [
+        1025.60009765625,
+        -56.27924728393555
+      ],
+      "size": [
+        337.8116455078125,
+        219.0602569580078
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewAny",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "PreviewAny",
+      "pos": [
+        1024.735595703125,
+        242.0623016357422
+      ],
+      "size": [
+        337.8116455078125,
+        219.0602569580078
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 27
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewAny",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      23,
+      2,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      18,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      2,
+      1,
+      19,
+      0,
+      "*"
+    ],
+    [
+      27,
+      2,
+      2,
+      20,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 0.6588450000000011,
+      "offset": [
+        -146.29281804470975,
+        755.7052793969937
+      ]
+    },
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
