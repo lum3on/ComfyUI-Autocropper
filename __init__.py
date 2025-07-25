@@ -92,6 +92,15 @@ try:
 except ImportError as e:
     print(f"✗ Failed to import TIFF nodes: {e}")
 
+# Import Denrakeiw Nodes
+try:
+    from .denrakeiw_nodes import NODE_CLASS_MAPPINGS as DENRAKEIW_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as DENRAKEIW_DISPLAY_MAPPINGS
+    NODE_CLASS_MAPPINGS.update(DENRAKEIW_MAPPINGS)
+    NODE_DISPLAY_NAME_MAPPINGS.update(DENRAKEIW_DISPLAY_MAPPINGS)
+    print("✓ Denrakeiw nodes loaded successfully")
+except ImportError as e:
+    print(f"✗ Failed to import Denrakeiw nodes: {e}")
+
 WEB_DIRECTORY = "./js"
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'WEB_DIRECTORY']
