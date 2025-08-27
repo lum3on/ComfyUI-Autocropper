@@ -1,0 +1,314 @@
+{
+  "id": "2ff18f8c-0ff0-4150-a99b-54fb3641dc30",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Load Image Batch",
+      "pos": [
+        475.4287414550781,
+        -79.90972900390625
+      ],
+      "size": [
+        339.9423522949219,
+        270
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "3ed45af34a14551dc28cb3127235cc7197d4633f",
+        "Node name for S&R": "Load Image Batch",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "incremental_image",
+        616894983241710,
+        "randomize",
+        0,
+        "Batch 001",
+        "D:\\2025\\porsche_crop",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "PreviewImage",
+      "pos": [
+        1309.6973876953125,
+        -74.464111328125
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "PreviewImage",
+        "ue_properties": {
+          "version": "7.0.1"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        472.4541320800781,
+        242.91998291015625
+      ],
+      "size": [
+        339.3333740234375,
+        357.82464599609375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "You are a dynamic advertising image cropper GPT that analyzes high-resolution marketing images, intelligently selecting from Desktop Banner (468×60), Desktop Leaderboard (728×90), Desktop Skyscraper (120×600), Desktop Large Skyscraper (160×600), or Mobile Leaderboard (320×50) to maintain precise focus on key products, brands, or content elements using saliency, object detection, and composition rules—ensuring every crop enhances visual impact, brand integrity, and advertising-platform-ready aesthetics across diverse marketing scenes.\n\nCropping Rule List\nParked shots (product displays, showroom images, static presentations): Desktop Leaderboard (728×90) or Desktop Skyscraper (120×600)\nCockpit/interior views (close-up product details, interior shots, confined spaces): Desktop Large Skyscraper (160×600) or Desktop Banner (468×60)\nDetail shots (logos, badges, product features, text elements): Desktop Banner (468×60) or Desktop Large Skyscraper (160×600)\nDynamic driving scenes (action shots, motion content, wide compositions): Desktop Leaderboard (728×90) or Mobile Leaderboard (320×50)"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "SpecialFormatsAutoCropperNode",
+      "pos": [
+        846.7039184570312,
+        -80.92584228515625
+      ],
+      "size": [
+        413.0455627441406,
+        350.3719482421875
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cropped_image",
+          "type": "IMAGE",
+          "links": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "format_info",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "reasoning",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "raw_analysis_response",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "aux_id": "lum3on/ComfyUI-Autocropper",
+        "ver": "7604f20ef87c2c9b30c1ae1dce2b50d4d9d09aaf",
+        "Node name for S&R": "SpecialFormatsAutoCropperNode",
+        "ue_properties": {
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "This advertising-focused node uses Qwen vision model to analyze marketing images and intelligently crop them for standard advertising banner formats. It automatically selects the best format based on content analysis: products, logos, text, and brand elements to create effective advertising crops with exact pixel dimensions required by advertising platforms.",
+        "qwen2.5vl:7b",
+        "http://localhost:11434",
+        true,
+        0.5
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": [
+        1495.9119873046875,
+        -76.2620849609375
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Porsche_Specialformats/crops-special"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      1,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 0.20086298320163773,
+      "offset": [
+        3542.2229855101186,
+        1236.9378116671407
+      ]
+    },
+    "frontendVersion": "1.25.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
