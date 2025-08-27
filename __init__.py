@@ -83,6 +83,16 @@ except ImportError as e:
     print(f"✗ Failed to import DynamicAutoCropperNode: {e}")
     print("Make sure required packages are installed: ultralytics, opencv-python")
 
+# Import SpecialFormatsAutoCropperNode
+try:
+    from .special_formats_autocrop_node import SpecialFormatsAutoCropperNode
+    NODE_CLASS_MAPPINGS["SpecialFormatsAutoCropperNode"] = SpecialFormatsAutoCropperNode
+    NODE_DISPLAY_NAME_MAPPINGS["SpecialFormatsAutoCropperNode"] = "🎯 Special Formats Auto Cropper"
+    print("✓ SpecialFormatsAutoCropperNode loaded successfully")
+except ImportError as e:
+    print(f"✗ Failed to import SpecialFormatsAutoCropperNode: {e}")
+    print("Make sure required packages are installed: ultralytics, opencv-python, openai")
+
 # Import TIFF Nodes
 try:
     from .tiff_nodes import NODE_CLASS_MAPPINGS as TIFF_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as TIFF_DISPLAY_MAPPINGS
